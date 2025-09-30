@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://buk77dkedpr0x"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_y1bk8"]
+[ext_resource type="SpriteFrames" uid="uid://b4tfgixuxyn0c" path="res://Character/Guard.tres" id="1_i2pce"]
 
 [node name="Guard" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_y1bk8")
+sprite_frames = ExtResource("1_i2pce")
+animation = &"Attack down"
