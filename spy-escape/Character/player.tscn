@@ -1,11 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dn58ws5ur6fkc"]
 
-[ext_resource type="SpriteFrames" uid="uid://b4tfgixuxyn0c" path="res://Character/player.tres" id="1_6ele1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfpf6"]
 
 [node name="Player" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 scale = Vector2(1.84971, 1.84971)
-sprite_frames = ExtResource("1_6ele1")
-animation = &"Attack down"
+sprite_frames = SubResource("SpriteFrames_bfpf6")
