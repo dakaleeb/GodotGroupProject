@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=136 format=3 uid="uid://b4tfgixuxyn0c"]
+[gd_resource type="SpriteFrames" load_steps=141 format=3 uid="uid://b4tfgixuxyn0c"]
 
 [ext_resource type="Texture2D" uid="uid://ccndq6krrgqjf" path="res://Assets/Guard_SpriteSheet.png" id="1_nm8k3"]
 [ext_resource type="Texture2D" uid="uid://bago2lxb24v4e" path="res://Assets/Guard_Climb_SpriteSheet.png" id="2_gmalj"]
 [ext_resource type="Texture2D" uid="uid://bax5wgsoky5vl" path="res://Assets/Guard_Hit_SpriteSheet.png" id="3_00fni"]
+[ext_resource type="Texture2D" uid="uid://cke61eqw2kiu4" path="res://Assets/guard_shoot_SpriteSheet.png" id="4_gmalj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4j14"]
 atlas = ExtResource("1_nm8k3")
@@ -467,6 +468,22 @@ region = Rect2(160, 24, 16, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fqxe"]
 atlas = ExtResource("1_nm8k3")
 region = Rect2(176, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00fni"]
+atlas = ExtResource("4_gmalj")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu66h"]
+atlas = ExtResource("4_gmalj")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1rrl"]
+atlas = ExtResource("4_gmalj")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pws1l"]
+atlas = ExtResource("4_gmalj")
+region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqjco"]
 atlas = ExtResource("1_nm8k3")
@@ -1040,6 +1057,38 @@ animations = [{
 }],
 "loop": false,
 "name": &"Run up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00fni")
+}],
+"loop": true,
+"name": &"Shoot down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu66h")
+}],
+"loop": true,
+"name": &"Shoot left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1rrl")
+}],
+"loop": true,
+"name": &"Shoot right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pws1l")
+}],
+"loop": true,
+"name": &"Shoot up",
 "speed": 5.0
 }, {
 "frames": [{
