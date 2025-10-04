@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck3liq5tpu2am"
-path="res://.godot/imported/C_Pull_SOUTH_strip4.png-8ffbf588c5cc68e78edd3f3e58fb2f1f.ctex"
+uid="uid://bxv4gnrnny0fl"
+path="res://.godot/imported/sceneObjects.png-c8d682351d28255fb9e75512f6941e30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Agent Free Version/Pull/C_Pull_SOUTH_strip4.png"
-dest_files=["res://.godot/imported/C_Pull_SOUTH_strip4.png-8ffbf588c5cc68e78edd3f3e58fb2f1f.ctex"]
+source_file="res://sceneObjects.png"
+dest_files=["res://.godot/imported/sceneObjects.png-c8d682351d28255fb9e75512f6941e30.ctex"]
 
 [params]
 
