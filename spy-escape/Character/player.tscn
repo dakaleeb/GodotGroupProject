@@ -9,13 +9,15 @@ radius = 12.0416
 [sub_resource type="CircleShape2D" id="CircleShape2D_2brrg"]
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_3c51y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -1)
 scale = Vector2(1.84971, 1.84971)
 sprite_frames = ExtResource("1_6ele1")
-animation = &"walk_down"
+animation = &"shoot_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
