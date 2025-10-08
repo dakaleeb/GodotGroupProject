@@ -20,12 +20,22 @@ var chasing := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+
+func _find_node_recursive(node: Node, name: String) -> Node:
+	if node.name == name:
+		return node
+	for child in node.get_children():
+		var result = _find_node_recursive(child, name)
+		if result:
+			return result
+	return null
+
 func _ready() -> void:
-	# Auto-assign player if not set
 	if target == null:
-		var scene_root = get_tree().get_current_scene() as Node
+		var scene_root = get_tree().get_current_scene()
 		if scene_root:
-			target = scene_root.find_node("Player", true, false)
+			target = _find_node_recursive(scene_root, "Player")
+
 
 func _physics_process(delta: float) -> void:
 	if is_dead:

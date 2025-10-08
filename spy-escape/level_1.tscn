@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://rgqnpeke3fw1"]
+[gd_scene load_steps=10 format=4 uid="uid://rgqnpeke3fw1"]
 
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://bxv4gnrnny0fl" path="res://sceneObjects.png" id="2_hn12h"]
-[ext_resource type="PackedScene" uid="uid://dn58ws5ur6fkc" path="res://Character/player.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" path="res://Character/player.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://buk77dkedpr0x" path="res://Character/guard.tscn" id="4_ihfcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn12h"]
@@ -2785,7 +2785,6 @@ y_sort_enabled = true
 polygon = PackedVector2Array(-293, -160, -284, -158, -283, -120, 215, -118, 216, -96, -284, -99, -286, 289, 130, 288, 137, 200, 218, 199, 218, 286, 286, 286, 286, 197, 242, 196, 242, 191, 288, 190, 288, -4, -110, -1, -110, -16, 288, -15, 288, -98, 278, -98, 277, -117, 288, -117, 286, -268, -285, -268, -284, -226, -294, -228, -293, -160, -309, -190, -330, -353, -219, -377, -2, -382, 302, -351, 315, -263, 317, 289, 289, 341, -312, 318, -316, -35, -315, -149, -318, -200)
 
 [node name="Player" parent="scene" instance=ExtResource("3_hn12h")]
-y_sort_enabled = true
 position = Vector2(-1, 29)
 collision_layer = 3
 
