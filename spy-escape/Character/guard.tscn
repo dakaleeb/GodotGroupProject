@@ -10,8 +10,10 @@ radius = 7.0
 script = ExtResource("1_ywg5g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2.0000002)
+scale = Vector2(1.7708333, 1.7708331)
 sprite_frames = ExtResource("2_ynq6l")
-animation = &"Attack down"
+animation = &"attack_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)

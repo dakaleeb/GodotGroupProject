@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://bxv4gnrnny0fl" path="res://sceneObjects.png" id="2_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dn58ws5ur6fkc" path="res://Character/player.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://buk77dkedpr0x" path="res://Character/guard.tscn" id="4_ihfcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn12h"]
 texture = ExtResource("2_hn12h")
@@ -2752,6 +2753,7 @@ sources/0 = SubResource("TileSetAtlasSource_ihfcg")
 sources/1 = SubResource("TileSetAtlasSource_rka8t")
 
 [node name="Level 1" type="Node2D"]
+y_sort_enabled = true
 
 [node name="scene" type="Node2D" parent="."]
 
@@ -2788,3 +2790,13 @@ position = Vector2(-1, 29)
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="scene/Player"]
+position = Vector2(-1, 0)
+
+[node name="Guard" parent="." instance=ExtResource("4_ihfcg")]
+position = Vector2(262, 12)
+
+[node name="Marker2D" type="Marker2D" parent="Guard"]
+gizmo_extents = 160.0
+
+[node name="Marker2D2" type="Marker2D" parent="Guard"]
+position = Vector2(0, 160)

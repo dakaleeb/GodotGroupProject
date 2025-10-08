@@ -5,29 +5,38 @@ extends CharacterBody2D
 @export var health := 3
 @export var detection_range := 200.0
 @export var lose_sight_range := 300.0
-@export var patrol_points: Array[Vector2] = []
-@export var patrol_wait_time := 1.0
+@export var patrol_wait_time := 2.0  # seconds to wait at each patrol point
 
 var direction := "down"
 var is_dead := false
 var target: Node2D = null
 
+var patrol_points: Array[Vector2] = []
 var current_patrol_index := 0
+var patrol_forward := true  # direction along patrol points
 var waiting := false
 var wait_timer := 0.0
 var chasing := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	# Auto-assign player if not set
+	if target == null:
+		var scene_root = get_tree().get_current_scene() as Node
+		if scene_root:
+			target = scene_root.find_node("Player", true, false)
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+
+	velocity = Vector2.ZERO
 
 	if target and is_instance_valid(target):
 		var distance = global_position.distance_to(target.global_position)
 
 		if chasing:
-			# Stop chasing if player goes out of range
 			if distance > lose_sight_range:
 				chasing = false
 			else:
@@ -35,20 +44,18 @@ func _physics_process(delta: float) -> void:
 				move_and_slide()
 				return
 		else:
-			# Begin chasing if player is near enough
 			if distance < detection_range:
 				chasing = true
 				chase_target()
 				move_and_slide()
 				return
 
-	# Patrol when not chasing
 	handle_patrol(delta)
 	move_and_slide()
 
-# Patrol movement
 func handle_patrol(delta: float) -> void:
 	if patrol_points.size() < 2:
+		velocity = Vector2.ZERO
 		anim.play("idle_" + direction)
 		return
 
@@ -56,6 +63,11 @@ func handle_patrol(delta: float) -> void:
 		wait_timer -= delta
 		if wait_timer <= 0:
 			waiting = false
+			# Reverse direction at ends
+			if patrol_forward and current_patrol_index >= patrol_points.size() - 1:
+				patrol_forward = false
+			elif not patrol_forward and current_patrol_index <= 0:
+				patrol_forward = true
 		else:
 			velocity = Vector2.ZERO
 			anim.play("idle_" + direction)
@@ -65,7 +77,7 @@ func handle_patrol(delta: float) -> void:
 	var dir_vector = (target_point - global_position).normalized()
 	velocity = dir_vector * walk_speed
 
-	# Facing direction
+	# Set facing direction
 	if abs(dir_vector.x) > abs(dir_vector.y):
 		direction = "right" if dir_vector.x > 0 else "left"
 	else:
@@ -73,18 +85,21 @@ func handle_patrol(delta: float) -> void:
 
 	anim.play("walk_" + direction)
 
-	# If reached patrol point
+	# Check if reached patrol point
 	if global_position.distance_to(target_point) < 10:
-		current_patrol_index = (current_patrol_index + 1) % patrol_points.size()
 		waiting = true
 		wait_timer = patrol_wait_time
 
-# Chase movement
+		if patrol_forward:
+			current_patrol_index += 1
+		else:
+			current_patrol_index -= 1
+
 func chase_target() -> void:
 	var dir_vector = (target.global_position - global_position).normalized()
 	velocity = dir_vector * run_speed
 
-	# Facing direction
+	# Set facing direction
 	if abs(dir_vector.x) > abs(dir_vector.y):
 		direction = "right" if dir_vector.x > 0 else "left"
 	else:
@@ -95,8 +110,8 @@ func chase_target() -> void:
 	# Attack animation when close
 	if global_position.distance_to(target.global_position) < 40:
 		anim.play("attack_" + direction)
+		velocity = Vector2.ZERO  # stop while attacking
 
-# Damage system
 func take_damage(amount: int) -> void:
 	if is_dead:
 		return
