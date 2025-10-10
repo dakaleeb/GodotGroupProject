@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var health := 6
 @export var max_health := 6
 
-var direction := "down"
+var direction := "right"
 var is_dead := false
 var is_hit_anim := false
 var is_attacking := false
