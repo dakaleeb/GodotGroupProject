@@ -1,17 +1,16 @@
-
 [gd_scene load_steps=5 format=3 uid="uid://dn58ws5ur6fkc"]
-
 
 [ext_resource type="Script" uid="uid://b4xdsow3mcpwm" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="SpriteFrames" uid="uid://ck4y02gf4a3ff" path="res://Character/Player.tres" id="1_6ele1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3c51y"]
-radius = 12.0416
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c51y"]
+size = Vector2(20, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2brrg"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
+collision_mask = 3
 script = ExtResource("1_3c51y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -22,12 +21,16 @@ sprite_frames = ExtResource("1_6ele1")
 animation = &"shoot_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_3c51y")
+position = Vector2(2, 8.5)
+shape = SubResource("RectangleShape2D_3c51y")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-1, 15)
 shape = SubResource("CircleShape2D_2brrg")
 debug_color = Color(1, 0.00435559, 0.0657633, 0.42)
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

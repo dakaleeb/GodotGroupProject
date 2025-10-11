@@ -2819,7 +2819,7 @@ physics_interpolation_mode = 1
 light_mask = 3
 visibility_layer = 3
 y_sort_enabled = true
-polygon = PackedVector2Array(-293, -160, -284, -158, -283, -120, 215, -118, 216, -96, -284, -99, -286, 289, 130, 288, 137, 200, 218, 199, 218, 286, 286, 286, 286, 197, 242, 196, 242, 191, 288, 190, 288, -4, -110, -1, -110, -16, 288, -15, 288, -98, 278, -98, 277, -117, 288, -117, 286, -268, -285, -268, -284, -226, -294, -228, -293, -160, -309, -190, -330, -353, -219, -377, -2, -382, 302, -351, 315, -263, 317, 289, 289, 341, -312, 318, -316, -35, -315, -149, -318, -200)
+polygon = PackedVector2Array(-293, -160, -284, -158, -283, -120, 215, -118, 216, -96, -284, -99, -286, 289, 130, 288, 137, 200, 218, 199, 218, 286, 286, 286, 286, 197, 250, 196, 250, 191, 288, 190, 288, -4, -110, -1, -110, -16, 288, -15, 288, -98, 278, -98, 277, -117, 288, -117, 286, -268, -285, -268, -284, -226, -294, -228, -293, -160, -309, -190, -330, -353, -219, -377, -2, -382, 302, -351, 315, -263, 317, 289, 289, 341, -312, 318, -316, -35, -315, -149, -318, -200)
 
 [node name="Player" parent="scene" instance=ExtResource("3_hn12h")]
 position = Vector2(-256, -197)
@@ -2828,14 +2828,21 @@ collision_layer = 3
 [node name="Camera2D" type="Camera2D" parent="scene/Player"]
 position = Vector2(-1, 0)
 
-[node name="PatrolPoint1" type="Marker2D" parent="scene" groups=["patrol_points"]]
+[node name="PatrolPoint1" type="Marker2D" parent="scene"]
 position = Vector2(262, 12)
 
-[node name="PatrolPoint2" type="Marker2D" parent="scene" groups=["patrol_points"]]
+[node name="PatrolPoint2" type="Marker2D" parent="scene"]
 position = Vector2(262, 160)
 
-[node name="Guard" parent="." instance=ExtResource("4_ihfcg")]
+[node name="PatrolPoint3" type="Marker2D" parent="scene"]
+position = Vector2(-124, -242)
+
+[node name="PatrolPoint4" type="Marker2D" parent="scene"]
+position = Vector2(229, -240)
+
+[node name="Guard" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
 position = Vector2(262, 12)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePath("../scene/PatrolPoint2")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
 position = Vector2(-1, 0)
@@ -2895,3 +2902,11 @@ shape = SubResource("SegmentShape2D_sof0w")
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="NavigationObstacle2D"]
 position = Vector2(-322, -5)
 shape = SubResource("SegmentShape2D_ggavl")
+
+[node name="Guard2" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
+position = Vector2(-81, -227)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePath("../scene/PatrolPoint4")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
+position = Vector2(342, 239)
+navigation_polygon = SubResource("NavigationPolygon_ihfcg")
