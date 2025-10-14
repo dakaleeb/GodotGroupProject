@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://rgqnpeke3fw1"]
+[gd_scene load_steps=21 format=4 uid="uid://rgqnpeke3fw1"]
 
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
 [ext_resource type="Script" uid="uid://bsk4qamacn725" path="res://node_2d.gd" id="1_j7kpp"]
@@ -2282,6 +2282,43 @@ size = Vector2(10, 69)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rr72"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ihfcg"]
+vertices = PackedVector2Array(7.2734375, 6.0390625, 11.703125, 163.75781, -34.46875, 162.71094, -38.726563, 157.21875, -30.5625, -157.02344, -534.5, -156.02344, -529.46875, -260, 8.53125, -260, 3, -140.22656, -33.421875, -89.89844, 3, -104.52344, 7.9921875, -52.078125, -389, -55.078125, -529.0703, -94.890625, -531.90625, 262.96875, -389, 8.046875, -144.63281, 262.02344, -140.61719, 154.77344, -30.75, 260, -25.148438, 205.5625, 11.578125, 260, 9.3828125, 207.46875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(17, 15, 0, 3), PackedInt32Array(18, 3, 2, 19), PackedInt32Array(20, 18, 19, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-539, -270, 19, -270, 13, -140, 13, -105, 19, -42, -379, -45, -379, -2, 17, -4, 22, 174, -22, 173, -17, 196, 19, 198, 22, 270, -40, 270, -48, 167, -131, 165, -135, 272, -542, 273, -539, -105, -43, -100, -41, -147, -545, -146)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
+size = Vector2(49, 71.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hph3"]
+size = Vector2(38, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7kpp"]
+size = Vector2(51, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjebc"]
+size = Vector2(63, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rr72"]
+size = Vector2(72.5, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyffv"]
+size = Vector2(71.5, 87.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1pe0h"]
+a = Vector2(3, 88)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_27bay"]
+b = Vector2(-60, 4)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sof0w"]
+a = Vector2(2, 89)
+b = Vector2(-57, 86)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ggavl"]
+a = Vector2(-65, 165)
+b = Vector2(-65, 88)
+
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
 
@@ -2350,15 +2387,90 @@ position = Vector2(-1, 0)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="scene/Player"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_5rr72")
-
-[node name="Guard" parent="." instance=ExtResource("4_ihfcg")]
+[node name="PatrolPoint1" type="Marker2D" parent="scene"]
 position = Vector2(262, 12)
 
-[node name="Marker2D" type="Marker2D" parent="Guard"]
-gizmo_extents = 160.0
+[node name="PatrolPoint2" type="Marker2D" parent="scene"]
+position = Vector2(262, 160)
+
+[node name="PatrolPoint3" type="Marker2D" parent="scene"]
+position = Vector2(-124, -242)
+
+[node name="PatrolPoint4" type="Marker2D" parent="scene"]
+position = Vector2(229, -240)
+
+[node name="Guard" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
+position = Vector2(262, 12)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePath("../scene/PatrolPoint2")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
+position = Vector2(-1, 0)
+navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(262, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-437.5, -209.75)
+shape = SubResource("RectangleShape2D_rka8t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-297, -204.5)
+shape = SubResource("RectangleShape2D_5hph3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-197.5, -204.5)
+shape = SubResource("RectangleShape2D_j7kpp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-84.5, -202)
+shape = SubResource("RectangleShape2D_bjebc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-480, 41)
+shape = SubResource("RectangleShape2D_5rr72")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-480.75, 209.25)
+shape = SubResource("RectangleShape2D_gyffv")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-71, 67)
+shape = SubResource("RectangleShape2D_gyffv")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-166, 74)
+shape = SubResource("SegmentShape2D_1pe0h")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-166, 74)
+shape = SubResource("SegmentShape2D_27bay")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-166, 74)
+shape = SubResource("SegmentShape2D_sof0w")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-326, 73)
+shape = SubResource("SegmentShape2D_sof0w")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-322, -5)
+shape = SubResource("SegmentShape2D_sof0w")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="NavigationObstacle2D"]
+position = Vector2(-322, -5)
+shape = SubResource("SegmentShape2D_ggavl")
+
+[node name="Guard2" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
+position = Vector2(-81, -227)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePath("../scene/PatrolPoint4")])
 
 [node name="Marker2D2" type="Marker2D" parent="Guard"]
 position = Vector2(0, 160)
 
 [connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
 [connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
+position = Vector2(342, 239)
+navigation_polygon = SubResource("NavigationPolygon_ihfcg")

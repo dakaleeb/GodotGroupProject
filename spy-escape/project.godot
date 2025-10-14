@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Spy escape"
-run/main_scene="uid://rgqnpeke3fw1"
+run/main_scene="uid://b6v5cq6qud3gi"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+guards=""
+player=""
 
 [input]
 
@@ -93,3 +98,8 @@ debug_die={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Guards"
