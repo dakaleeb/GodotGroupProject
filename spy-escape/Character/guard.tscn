@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buk77dkedpr0x"]
+[gd_scene load_steps=6 format=3 uid="uid://buk77dkedpr0x"]
 
 [ext_resource type="Script" uid="uid://bmlm8vil1p3oe" path="res://Character/guard.gd" id="1_ywg5g"]
 [ext_resource type="SpriteFrames" uid="uid://b4tfgixuxyn0c" path="res://Character/Guard.tres" id="2_ynq6l"]
+[ext_resource type="PackedScene" uid="uid://bjwowtiab8c4f" path="res://detector.tscn" id="3_ynq6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywg5g"]
 size = Vector2(17, 24)
@@ -34,4 +35,8 @@ debug_color = Color(0.9888424, 0.10445251, 0, 0.41960785)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[node name="Detector" parent="." instance=ExtResource("3_ynq6l")]
+
+[node name="SightRay" type="RayCast2D" parent="."]
+collision_mask = 15
+collide_with_areas = true
