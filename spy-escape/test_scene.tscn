@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://drhuo0mv77xc1"]
+
+[ext_resource type="PackedScene" uid="uid://buk77dkedpr0x" path="res://Character/guard.tscn" id="1_ia1lp"]
+[ext_resource type="PackedScene" uid="uid://bjwowtiab8c4f" path="res://detector.tscn" id="2_sasra"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_coq8p"]
+vertices = PackedVector2Array(7.2734375, 6.0390625, 11.703125, 163.75781, -34.46875, 162.71094, -38.726563, 157.21875, -30.5625, -157.02344, -534.5, -156.02344, -529.46875, -260, 8.53125, -260, 3, -140.22656, -33.421875, -89.89844, 3, -104.52344, 7.9921875, -52.078125, -389, -55.078125, -529.0703, -94.890625, -531.90625, 262.96875, -389, 8.046875, -144.63281, 262.02344, -140.61719, 154.77344, -30.75, 260, -25.148438, 205.5625, 11.578125, 260, 9.3828125, 207.46875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(17, 15, 0, 3), PackedInt32Array(18, 3, 2, 19), PackedInt32Array(20, 18, 19, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-539, -270, 19, -270, 13, -140, 13, -105, 19, -42, -379, -45, -379, -2, 17, -4, 22, 174, -22, 173, -17, 196, 19, 198, 22, 270, -40, 270, -48, 167, -131, 165, -135, 272, -542, 273, -539, -105, -43, -100, -41, -147, -545, -146)])
+
+[node name="TestScene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1182.0
+offset_bottom = 645.0
+
+[node name="Guard" parent="." groups=["guards"] instance=ExtResource("1_ia1lp")]
+position = Vector2(859, 314)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePath("../scene/PatrolPoint2")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
+position = Vector2(-1, 0)
+navigation_polygon = SubResource("NavigationPolygon_coq8p")
+
+[node name="Marker2D2" type="Marker2D" parent="Guard"]
+position = Vector2(0, 160)
+
+[node name="Detector" parent="Guard" instance=ExtResource("2_sasra")]

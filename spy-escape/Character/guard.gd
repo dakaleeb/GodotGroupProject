@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var walk_speed := 150
 @export var run_speed := 250
 @export var health := 3
-@export var detection_range := 100.0
+@export var detection_range := 30.0
 @export var lose_sight_range := 150.0
 @export var patrol_wait_time := 2.0
 @export var patrol_points_paths: Array[NodePath] = []
@@ -200,3 +200,17 @@ func die():
 		if anim_name.begins_with("death"):
 			queue_free()
 )
+
+
+
+func _on_Detector_body_entered(body: Node2D) -> void:
+	if is_dead:
+		return
+	if body.name == "Player":
+		print("Player has entered Detector Body!")
+		target = body
+		chasing = true
+		returning = false
+		attack_hit_done = false
+		chase_target()
+		move_and_slide()

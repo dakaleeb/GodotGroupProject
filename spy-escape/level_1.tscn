@@ -1,14 +1,15 @@
-[gd_scene load_steps=21 format=4 uid="uid://rgqnpeke3fw1"]
+[gd_scene load_steps=28 format=4 uid="uid://rgqnpeke3fw1"]
 
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
-[ext_resource type="Script" uid="uid://bsk4qamacn725" path="res://node_2d.gd" id="1_j7kpp"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://bxv4gnrnny0fl" path="res://sceneObjects.png" id="2_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dn58ws5ur6fkc" path="res://Character/player.tscn" id="3_hn12h"]
 [ext_resource type="Texture2D" uid="uid://do1e5qis6i5sy" path="res://keycard.png" id="3_rka8t"]
 [ext_resource type="Texture2D" uid="uid://ype7hc7jj75f" path="res://door.png" id="4_5hph3"]
-[ext_resource type="Script" uid="uid://c757joxormgny" path="res://key_card.gd" id="4_5rr72"]
+[ext_resource type="Script" path="res://key_card.gd" id="4_5rr72"]
 [ext_resource type="PackedScene" uid="uid://buk77dkedpr0x" path="res://Character/guard.tscn" id="4_ihfcg"]
-[ext_resource type="Script" uid="uid://b8tm26q41w0de" path="res://greendoor.gd" id="6_gyffv"]
+[ext_resource type="Script" path="res://greendoor.gd" id="6_gyffv"]
+[ext_resource type="PackedScene" uid="uid://bjwowtiab8c4f" path="res://detector.tscn" id="10_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn12h"]
 texture = ExtResource("2_hn12h")
@@ -2278,7 +2279,7 @@ sources/0 = SubResource("TileSetAtlasSource_ihfcg")
 [sub_resource type="CircleShape2D" id="CircleShape2D_5hph3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7kpp"]
-size = Vector2(10, 69)
+size = Vector2(51, 63)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rr72"]
 
@@ -2292,9 +2293,6 @@ size = Vector2(49, 71.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hph3"]
 size = Vector2(38, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7kpp"]
-size = Vector2(51, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjebc"]
 size = Vector2(63, 60)
@@ -2387,6 +2385,7 @@ position = Vector2(-1, 0)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="scene/Player"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_5rr72")
+
 [node name="PatrolPoint1" type="Marker2D" parent="scene"]
 position = Vector2(262, 12)
 
@@ -2406,6 +2405,12 @@ patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePa
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
 position = Vector2(-1, 0)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+
+[node name="Marker2D2" type="Marker2D" parent="Guard"]
+position = Vector2(0, 160)
+
+[node name="Detector" parent="Guard" instance=ExtResource("10_gyffv")]
+collision_mask = 255
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(262, 12)
@@ -2466,11 +2471,10 @@ shape = SubResource("SegmentShape2D_ggavl")
 position = Vector2(-81, -227)
 patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePath("../scene/PatrolPoint4")])
 
-[node name="Marker2D2" type="Marker2D" parent="Guard"]
-position = Vector2(0, 160)
-
-[connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
-[connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
 position = Vector2(342, 239)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+
+[connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
+[connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]
+[connection signal="body_entered" from="Guard/Detector" to="Guard" method="_on_Detector_body_entered"]

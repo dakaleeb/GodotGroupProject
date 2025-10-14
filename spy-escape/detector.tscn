@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bjwowtiab8c4f"]
+
+[node name="Detector" type="Area2D"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-183, -102, -183, 94, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.06999999, 0.06999999, 0.13333334)
+polygon = PackedVector2Array(-183, -102, -183, 94, 0, 1)
