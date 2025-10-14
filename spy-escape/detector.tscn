@@ -4,10 +4,12 @@
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(0.325, 0.325)
-polygon = PackedVector2Array(-183, -102, -183, 94, 0, 1)
+position = Vector2(50.458763, 1.9317992)
+scale = Vector2(1.2452445, 0.74662197)
+polygon = PackedVector2Array(-215.68755, -114.34073, -215.68755, 102.46916, -126.7106, 47.918533, -42.026867, -3.999981)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(0.325, 0.325)
+position = Vector2(-49.441383, -1)
+scale = Vector2(0.5462274, 0.325)
 color = Color(1, 0.06999999, 0.06999999, 0.13333334)
-polygon = PackedVector2Array(-183, -102, -183, 94, 0, 1)
+polygon = PackedVector2Array(-308.5489, -262.24423, -308.5869, 254.08908, 87.87962, 5.1145134)
