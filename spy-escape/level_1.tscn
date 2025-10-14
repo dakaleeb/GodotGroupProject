@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://rgqnpeke3fw1"]
+[gd_scene load_steps=25 format=4 uid="uid://rgqnpeke3fw1"]
 
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
 [ext_resource type="Script" uid="uid://bsk4qamacn725" path="res://node_2d.gd" id="1_j7kpp"]
@@ -2283,10 +2283,10 @@ size = Vector2(51, 63)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rr72"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ihfcg"]
-vertices = PackedVector2Array(7.2734375, 6.0390625, 11.703125, 163.75781, -34.46875, 162.71094, -38.726563, 157.21875, -30.5625, -157.02344, -534.5, -156.02344, -529.46875, -260, 8.53125, -260, 3, -140.22656, -33.421875, -89.89844, 3, -104.52344, 7.9921875, -52.078125, -389, -55.078125, -529.0703, -94.890625, -531.90625, 262.96875, -389, 8.046875, -144.63281, 262.02344, -140.61719, 154.77344, -30.75, 260, -25.148438, 205.5625, 11.578125, 260, 9.3828125, 207.46875)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(17, 15, 0, 3), PackedInt32Array(18, 3, 2, 19), PackedInt32Array(20, 18, 19, 21)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-539, -270, 19, -270, 13, -140, 13, -105, 19, -42, -379, -45, -379, -2, 17, -4, 22, 174, -22, 173, -17, 196, 19, 198, 22, 270, -40, 270, -48, 167, -131, 165, -135, 272, -542, 273, -539, -105, -43, -100, -41, -147, -545, -146)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gyffv"]
+vertices = PackedVector2Array(7.2734375, 6.0390625, 11.703125, 163.75781, -34.46875, 162.71094, -38.726563, 157.21875, -30.5625, -157.02344, -534.5, -156.02344, -529.46875, -260, 8.53125, -260, 3, -140.22656, -33.421875, -89.89844, 3, -104.52344, 7.9921875, -52.078125, -389, -55.078125, -529.0703, -94.890625, -531.90625, 262.96875, -389, 8.046875, -144.63281, 262.02344, -140.61719, 154.77344, -30.75, 260, -25.148438, 205.5625, 11.03125, 246.96094, 11.5703125, 260, 9.3828125, 207.46875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(17, 15, 0, 3), PackedInt32Array(18, 3, 2, 19), PackedInt32Array(20, 21, 18, 19, 22)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-539, -270, 19, -270, 13, -140, 13, -105, 19, -42, -379, -45, -379, -2, 17, -4, 22, 174, -22, 173, -17, 196, 19, 198, 21.022491, 246.53963, 22, 270, -40, 270, -48, 167, -131, 165, -135, 272, -542, 273, -539, -105, -43, -100, -41, -147, -545, -146)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
 size = Vector2(49, 71.75)
@@ -2301,21 +2301,12 @@ size = Vector2(63, 60)
 size = Vector2(72.5, 90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyffv"]
-size = Vector2(71.5, 87.5)
+size = Vector2(77.75, 87.5)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1pe0h"]
-a = Vector2(3, 88)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_27bay"]
-b = Vector2(-60, 4)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_sof0w"]
-a = Vector2(2, 89)
-b = Vector2(-57, 86)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ggavl"]
-a = Vector2(-65, 165)
-b = Vector2(-65, 88)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ihfcg"]
+vertices = PackedVector2Array(7.2734375, 6.0390625, 11.703125, 163.75781, -34.46875, 162.71094, -38.726563, 157.21875, -30.5625, -157.02344, -534.5, -156.02344, -529.46875, -260, 8.53125, -260, 3, -140.22656, -33.421875, -89.89844, 3, -104.52344, 7.9921875, -52.078125, -389, -55.078125, -529.0703, -94.890625, -531.90625, 262.96875, -389, 8.046875, -144.63281, 262.02344, -140.61719, 154.77344, -30.75, 260, -25.148438, 205.5625, 11.03125, 246.96094, 11.5703125, 260, 9.3828125, 207.46875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(17, 15, 0, 3), PackedInt32Array(18, 3, 2, 19), PackedInt32Array(20, 21, 18, 19, 22)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-539, -270, 19, -270, 13, -140, 13, -105, 19, -42, -379, -45, -379, -2, 17, -4, 22, 174, -22, 173, -17, 196, 19, 198, 21.022491, 246.53963, 22, 270, -40, 270, -48, 167, -131, 165, -135, 272, -542, 273, -539, -105, -43, -100, -41, -147, -545, -146)])
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -2327,6 +2318,7 @@ y_sort_enabled = true
 script = ExtResource("1_j7kpp")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="scene/Node2D"]
+visible = false
 tile_map_data = PackedByteArray("AADu//f/AAACAAoAAADu//j/AAACAAsAAADu//n/AAACAAwAAADv//f/AAADAAoAAADv//j/AAADAAsAAADv//n/AAADAAwAAADv/wAAAAADABMAAADv/wEAAAADABQAAADv/wIAAAADABUAAADv/wMAAAADABYAAADv/wQAAAADABcAAADv/wUAAAADABgAAADv/wYAAAADABkAAADw//f/AAAEAAoAAADw//j/AAAEAAsAAADw//n/AAAEAAwAAADw/wAAAAAEABMAAADw/wEAAAAEABQAAADw/wIAAAAEABUAAADw/wMAAAAEABYAAADw/wQAAAAEABcAAADw/wUAAAAEABgAAADw/wYAAAAEABkAAADw/woAAAAEAB0AAADw/wsAAAAEAB4AAADw/wwAAAAEAB8AAADw/w0AAAAEACAAAADw/w4AAAAEACEAAADw/w8AAAAEACIAAADw/xAAAAAEACMAAADx//f/AAAFAAoAAADx//j/AAAFAAsAAADx//n/AAAFAAwAAADx/wAAAAAFABMAAADx/wEAAAAFABQAAADx/wIAAAAFABUAAADx/wMAAAAFABYAAADx/wQAAAAFABcAAADx/wUAAAAFABgAAADx/wYAAAAFABkAAADx/woAAAAFAB0AAADx/wsAAAAFAB4AAADx/wwAAAAFAB8AAADx/w0AAAAFACAAAADx/w4AAAAFACEAAADx/w8AAAAFACIAAADx/xAAAAAFACMAAADy//f/AAAGAAoAAADy//j/AAAGAAsAAADy//n/AAAGAAwAAADy/wAAAAAGABMAAADy/wEAAAAGABQAAADy/wIAAAAGABUAAADy/wMAAAAGABYAAADy/wQAAAAGABcAAADy/wUAAAAGABgAAADy/wYAAAAGABkAAADy/woAAAAGAB0AAADy/wsAAAAGAB4AAADy/wwAAAAGAB8AAADy/w0AAAAGACAAAADy/w4AAAAGACEAAADy/w8AAAAGACIAAADy/xAAAAAGACMAAADz//H/AAAHAAQAAADz//L/AAAHAAUAAADz//P/AAAHAAYAAADz//T/AAAHAAcAAADz//X/AAAHAAgAAADz//f/AAAHAAoAAADz//j/AAAHAAsAAADz//n/AAAHAAwAAADz/wAAAAAHABMAAADz/wEAAAAHABQAAADz/wIAAAAHABUAAADz/wMAAAAHABYAAADz/wQAAAAHABcAAADz/wUAAAAHABgAAADz/wYAAAAHABkAAADz/woAAAAHAB0AAADz/wsAAAAHAB4AAADz/wwAAAAHAB8AAADz/w0AAAAHACAAAADz/w4AAAAHACEAAADz/w8AAAAHACIAAADz/xAAAAAHACMAAAD0//H/AAAIAAQAAAD0//L/AAAIAAUAAAD0//P/AAAIAAYAAAD0//T/AAAIAAcAAAD0//X/AAAIAAgAAAD0//f/AAAIAAoAAAD0//j/AAAIAAsAAAD0//n/AAAIAAwAAAD0/wAAAAAIABMAAAD0/wEAAAAIABQAAAD0/wIAAAAIABUAAAD0/wMAAAAIABYAAAD0/wQAAAAIABcAAAD0/wUAAAAIABgAAAD0/wYAAAAIABkAAAD0/woAAAAIAB0AAAD0/wsAAAAIAB4AAAD0/wwAAAAIAB8AAAD0/w0AAAAIACAAAAD0/w4AAAAIACEAAAD0/w8AAAAIACIAAAD0/xAAAAAIACMAAAD1//H/AAAJAAQAAAD1//L/AAAJAAUAAAD1//P/AAAJAAYAAAD1//T/AAAJAAcAAAD1//X/AAAJAAgAAAD1//f/AAAJAAoAAAD1//j/AAAJAAsAAAD1//n/AAAJAAwAAAD2//H/AAAKAAQAAAD2//L/AAAKAAUAAAD2//P/AAAKAAYAAAD2//T/AAAKAAcAAAD2//X/AAAKAAgAAAD2//f/AAAKAAoAAAD2//j/AAAKAAsAAAD2//n/AAAKAAwAAAD3//f/AAALAAoAAAD3//j/AAALAAsAAAD3//n/AAALAAwAAAD3/wcAAAALABoAAAD3/wgAAAALABsAAAD3/wkAAAALABwAAAD3/woAAAALAB0AAAD4//f/AAAMAAoAAAD4//j/AAAMAAsAAAD4//n/AAAMAAwAAAD4/wUAAAAMABgAAAD4/wYAAAAMABkAAAD4/wcAAAAMABoAAAD4/wgAAAAMABsAAAD4/wkAAAAMABwAAAD4/woAAAAMAB0AAAD5//f/AAANAAoAAAD5//j/AAANAAsAAAD5//n/AAANAAwAAAD5//7/AAANABEAAAD5////AAANABIAAAD5/wUAAAANABgAAAD5/woAAAANAB0AAAD6//f/AAAOAAoAAAD6//j/AAAOAAsAAAD6//n/AAAOAAwAAAD6//7/AAAOABEAAAD6////AAAOABIAAAD6/wUAAAAOABgAAAD6/woAAAAOAB0AAAD7//f/AAAPAAoAAAD7//j/AAAPAAsAAAD7//n/AAAPAAwAAAD7//7/AAAPABEAAAD7////AAAPABIAAAD7/wUAAAAPABgAAAD7/woAAAAPAB0AAAD8//H/AAAQAAQAAAD8//L/AAAQAAUAAAD8//P/AAAQAAYAAAD8//T/AAAQAAcAAAD8//X/AAAQAAgAAAD8//f/AAAQAAoAAAD8//j/AAAQAAsAAAD8//n/AAAQAAwAAAD8//7/AAAQABEAAAD8////AAAQABIAAAD8/wUAAAAQABgAAAD8/woAAAAQAB0AAAD9//H/AAARAAQAAAD9//L/AAARAAUAAAD9//P/AAARAAYAAAD9//T/AAARAAcAAAD9//X/AAARAAgAAAD9//f/AAARAAoAAAD9//j/AAARAAsAAAD9//n/AAARAAwAAAD9//7/AAARABEAAAD9////AAARABIAAAD+//H/AAASAAQAAAD+//L/AAASAAUAAAD+//P/AAASAAYAAAD+//T/AAASAAcAAAD+//X/AAASAAgAAAD+//f/AAASAAoAAAD+//j/AAASAAsAAAD+//n/AAASAAwAAAD+//7/AAASABEAAAD+////AAASABIAAAD///H/AAATAAQAAAD///L/AAATAAUAAAD///P/AAATAAYAAAD///T/AAATAAcAAAD///X/AAATAAgAAAD///f/AAATAAoAAAD///j/AAATAAsAAAD///n/AAATAAwAAAD///7/AAATABEAAAD/////AAATABIAAAAAAPf/AAAUAAoAAAAAAPj/AAAUAAsAAAAAAPn/AAAUAAwAAAAAAP7/AAAUABEAAAAAAP//AAAUABIAAAABAPf/AAAVAAoAAAABAPj/AAAVAAsAAAABAPn/AAAVAAwAAAABAP7/AAAVABEAAAABAP//AAAVABIAAAACAPH/AAAWAAQAAAACAPL/AAAWAAUAAAACAPP/AAAWAAYAAAACAPT/AAAWAAcAAAACAPX/AAAWAAgAAAACAPj/AAAWAAsAAAACAPn/AAAWAAwAAAACAP7/AAAWABEAAAACAP//AAAWABIAAAACAAUAAAAWABgAAAACAAoAAAAWAB0AAAADAPH/AAAXAAQAAAADAPL/AAAXAAUAAAADAPP/AAAXAAYAAAADAPT/AAAXAAcAAAADAPX/AAAXAAgAAAADAPj/AAAXAAsAAAADAPn/AAAXAAwAAAADAP7/AAAXABEAAAADAP//AAAXABIAAAADAAUAAAAXABgAAAADAAoAAAAXAB0AAAAEAPH/AAAYAAQAAAAEAPL/AAAYAAUAAAAEAPP/AAAYAAYAAAAEAPT/AAAYAAcAAAAEAPX/AAAYAAgAAAAEAPj/AAAYAAsAAAAEAPn/AAAYAAwAAAAEAP7/AAAYABEAAAAEAP//AAAYABIAAAAEAAUAAAAYABgAAAAEAAoAAAAYAB0AAAAFAPH/AAAZAAQAAAAFAPL/AAAZAAUAAAAFAPP/AAAZAAYAAAAFAPT/AAAZAAcAAAAFAPX/AAAZAAgAAAAFAPj/AAAZAAsAAAAFAPn/AAAZAAwAAAAFAP7/AAAZABEAAAAFAP//AAAZABIAAAAFAAUAAAAZABgAAAAFAAYAAAAZABkAAAAFAAcAAAAZABoAAAAFAAgAAAAZABsAAAAFAAkAAAAZABwAAAAFAAoAAAAZAB0AAAAGAPj/AAAaAAsAAAAGAPn/AAAaAAwAAAAGAP7/AAAaABEAAAAGAP//AAAaABIAAAAGAAUAAAAaABgAAAAGAAYAAAAaABkAAAAGAAcAAAAaABoAAAAGAAgAAAAaABsAAAAGAAkAAAAaABwAAAAGAAoAAAAaAB0AAAAHAPj/AAAbAAsAAAAHAPn/AAAbAAwAAAAHAP7/AAAbABEAAAAHAP//AAAbABIAAAAIAPj/AAAcAAsAAAAIAPn/AAAcAAwAAAAIAP7/AAAcABEAAAAIAP//AAAcABIAAAAIAAsAAAAcAB4AAAAIAAwAAAAcAB8AAAAIAA0AAAAcACAAAAAIAA4AAAAcACEAAAAIAA8AAAAcACIAAAAIABAAAAAcACMAAAAIABEAAAAcACQAAAAIABIAAAAcACUAAAAJAPL/AAAdAAUAAAAJAPP/AAAdAAYAAAAJAPT/AAAdAAcAAAAJAPX/AAAdAAgAAAAJAPb/AAAdAAkAAAAJAPf/AAAdAAoAAAAJAPj/AAAdAAsAAAAJAPn/AAAdAAwAAAAJAP7/AAAdABEAAAAJAP//AAAdABIAAAAJAAIAAAAdABUAAAAJAAMAAAAdABYAAAAJAAQAAAAdABcAAAAJAAUAAAAdABgAAAAJAAYAAAAdABkAAAAJAAcAAAAdABoAAAAJAAsAAAAdAB4AAAAJAAwAAAAdAB8AAAAJAA0AAAAdACAAAAAJAA4AAAAdACEAAAAJAA8AAAAdACIAAAAJABAAAAAdACMAAAAJABEAAAAdACQAAAAJABIAAAAdACUAAAAKAPL/AAAeAAUAAAAKAPP/AAAeAAYAAAAKAPT/AAAeAAcAAAAKAPX/AAAeAAgAAAAKAPb/AAAeAAkAAAAKAPf/AAAeAAoAAAAKAPj/AAAeAAsAAAAKAPn/AAAeAAwAAAAKAP7/AAAeABEAAAAKAP//AAAeABIAAAAKAAIAAAAeABUAAAAKAAMAAAAeABYAAAAKAAQAAAAeABcAAAAKAAUAAAAeABgAAAAKAAYAAAAeABkAAAAKAAcAAAAeABoAAAAKAAsAAAAeAB4AAAAKAAwAAAAeAB8AAAAKAA0AAAAeACAAAAAKAA4AAAAeACEAAAAKAA8AAAAeACIAAAAKABAAAAAeACMAAAAKABEAAAAeACQAAAAKABIAAAAeACUAAAALAPL/AAAfAAUAAAALAPP/AAAfAAYAAAALAPT/AAAfAAcAAAALAPX/AAAfAAgAAAALAPb/AAAfAAkAAAALAPf/AAAfAAoAAAALAPj/AAAfAAsAAAALAPn/AAAfAAwAAAALAP7/AAAfABEAAAALAP//AAAfABIAAAALAAIAAAAfABUAAAALAAMAAAAfABYAAAALAAQAAAAfABcAAAALAAUAAAAfABgAAAALAAYAAAAfABkAAAALAAcAAAAfABoAAAALAAsAAAAfAB4AAAALAAwAAAAfAB8AAAALAA0AAAAfACAAAAALAA4AAAAfACEAAAALAA8AAAAfACIAAAALABAAAAAfACMAAAALABEAAAAfACQAAAALABIAAAAfACUAAAAMAPL/AAAgAAUAAAAMAPP/AAAgAAYAAAAMAPT/AAAgAAcAAAAMAPX/AAAgAAgAAAAMAPb/AAAgAAkAAAAMAPf/AAAgAAoAAAAMAPj/AAAgAAsAAAAMAPn/AAAgAAwAAAAMAP7/AAAgABEAAAAMAP//AAAgABIAAAAMAAIAAAAgABUAAAAMAAMAAAAgABYAAAAMAAQAAAAgABcAAAAMAAUAAAAgABgAAAAMAAYAAAAgABkAAAAMAAcAAAAgABoAAAAMAAsAAAAgAB4AAAAMAAwAAAAgAB8AAAAMAA0AAAAgACAAAAAMAA4AAAAgACEAAAAMAA8AAAAgACIAAAAMABAAAAAgACMAAAAMABEAAAAgACQAAAAMABIAAAAgACUAAAANAPf/AAAhAAoAAAANAPj/AAAhAAsAAAANAPn/AAAhAAwAAAANAP7/AAAhABEAAAANAP//AAAhABIAAAANAAIAAAAhABUAAAANAAMAAAAhABYAAAANAAQAAAAhABcAAAANAAUAAAAhABgAAAANAAYAAAAhABkAAAANAAcAAAAhABoAAAANAAsAAAAhAB4AAAANAAwAAAAhAB8AAAANAA0AAAAhACAAAAANAA4AAAAhACEAAAANAA8AAAAhACIAAAANABAAAAAhACMAAAANABEAAAAhACQAAAANABIAAAAhACUAAAAOAP7/AAAiABEAAAAOAP//AAAiABIAAAAOAAIAAAAiABUAAAAOAAMAAAAiABYAAAAOAAQAAAAiABcAAAAOAAUAAAAiABgAAAAOAAYAAAAiABkAAAAOAAcAAAAiABoAAAAOAAsAAAAiAB4AAAAOAAwAAAAiAB8AAAAPAP7/AAAjABEAAAAPAP//AAAjABIAAAAPAAsAAAAjAB4AAAAPAAwAAAAjAB8AAAAQAP7/AAAkABEAAAAQAP//AAAkABIAAAAQAAsAAAAkAB4AAAAQAAwAAAAkAB8AAAARAPj/AAAlAAsAAAARAPn/AAAlAAwAAAARAP7/AAAlABEAAAARAP//AAAlABIAAAARAAsAAAAlAB4AAAARAAwAAAAlAB8AAAASAPj/AAAmAAsAAAASAPn/AAAmAAwAAAASAP7/AAAmABEAAAASAP//AAAmABIAAAASAAsAAAAmAB4AAAASAAwAAAAmAB8AAAA=")
 tile_set = SubResource("TileSet_ihfcg")
 collision_visibility_mode = 1
@@ -2428,8 +2420,45 @@ patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePa
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
 visible = false
-position = Vector2(-1, 0)
-navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+position = Vector2(-1, 1)
+navigation_polygon = SubResource("NavigationPolygon_gyffv")
+navigation_layers = 3
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Guard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-437.5, -209.75)
+shape = SubResource("RectangleShape2D_rka8t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-297, -204.5)
+shape = SubResource("RectangleShape2D_5hph3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-197.5, -204.5)
+shape = SubResource("RectangleShape2D_j7kpp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-84.5, -202)
+shape = SubResource("RectangleShape2D_bjebc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-480, 41)
+shape = SubResource("RectangleShape2D_5rr72")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-480.75, 209.25)
+shape = SubResource("RectangleShape2D_gyffv")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Guard/NavigationObstacle2D"]
+position = Vector2(-69.875, 69)
+shape = SubResource("RectangleShape2D_gyffv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Guard/NavigationObstacle2D"]
+polygon = PackedVector2Array(-227, 74, -227, 83, -169, 83, -169, 152, -228, 152, -228, 161, -161, 161, -161, 73)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Guard/NavigationObstacle2D"]
+polygon = PackedVector2Array(-319, 73, -391, 73, -391, 159, -318, 159, -319, 153, -383, 153, -383, 81, -319, 81)
 
 [node name="Detector" parent="Guard" instance=ExtResource("10_gyffv")]
 collision_mask = 255
@@ -2440,8 +2469,9 @@ patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint8"), NodePa
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard3"]
 visible = false
-position = Vector2(-1, 0)
+position = Vector2(412, 1)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+navigation_layers = 3
 
 [node name="Detector" parent="Guard3" instance=ExtResource("10_gyffv")]
 collision_mask = 255
@@ -2452,65 +2482,11 @@ patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePa
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
 visible = false
-position = Vector2(342, 239)
+position = Vector2(500, 251)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+navigation_layers = 3
 
 [node name="Detector" parent="Guard2" instance=ExtResource("10_gyffv")]
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-position = Vector2(262, 12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-437.5, -209.75)
-shape = SubResource("RectangleShape2D_rka8t")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-297, -204.5)
-shape = SubResource("RectangleShape2D_5hph3")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-197.5, -204.5)
-shape = SubResource("RectangleShape2D_j7kpp")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-84.5, -202)
-shape = SubResource("RectangleShape2D_bjebc")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-480, 41)
-shape = SubResource("RectangleShape2D_5rr72")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-480.75, 209.25)
-shape = SubResource("RectangleShape2D_gyffv")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-71, 67)
-shape = SubResource("RectangleShape2D_gyffv")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-166, 74)
-shape = SubResource("SegmentShape2D_1pe0h")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-166, 74)
-shape = SubResource("SegmentShape2D_27bay")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-166, 74)
-shape = SubResource("SegmentShape2D_sof0w")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-326, 73)
-shape = SubResource("SegmentShape2D_sof0w")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-322, -5)
-shape = SubResource("SegmentShape2D_sof0w")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="NavigationObstacle2D"]
-position = Vector2(-322, -5)
-shape = SubResource("SegmentShape2D_ggavl")
 
 [connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
 [connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]

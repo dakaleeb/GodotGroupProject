@@ -157,7 +157,7 @@ func handle_patrol(delta: float) -> void:
 
 		current_patrol_index += 1
 		if current_patrol_index >= patrol_points.size():
-			current_patrol_index = 0  # loop back to first
+			current_patrol_index = 0
 
 func handle_return(delta: float) -> void:
 	if patrol_points.size() == 0:
@@ -180,7 +180,6 @@ func handle_return(delta: float) -> void:
 
 	update_detector_direction() 
 	anim.play("walk_" + direction)
-
 
 # --- Rotate Detector Cone ---
 func update_detector_direction():
