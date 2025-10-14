@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var run_speed := 250
 @export var health := 3
 @export var detection_range := 30.0
-@export var lose_sight_range := 150.0
-@export var patrol_wait_time := 2.0
+@export var lose_sight_range := 100.0
+@export var patrol_wait_time := 1.0
 @export var patrol_points_paths: Array[NodePath] = []
 
 var direction := "down"
@@ -52,6 +52,10 @@ func _ready():
 	if scene_root:
 		target = _find_node_recursive(scene_root, "Player")
 
+	# Set unique avoidance layers for each guard
+	nav_agent.avoidance_layers = 1 << get_instance_id()
+	nav_agent.avoidance_mask = (1 << get_instance_id()) | (1 << (get_instance_id() + 1))
+
 func _find_node_recursive(node: Node, name: String) -> Node:
 	if node.name == name:
 		return node
@@ -64,11 +68,8 @@ func _find_node_recursive(node: Node, name: String) -> Node:
 func _physics_process(delta: float):
 	if is_dead:
 		return
-
-	if attack_timer > 0:
-		attack_timer -= delta
-	else:
-		attack_hit_done = false  # keep, harmless if unused
+		
+	attack_timer = max(attack_timer - delta, 0)
 
 	velocity = Vector2.ZERO
 
@@ -82,13 +83,9 @@ func _physics_process(delta: float):
 				nav_agent.target_position = patrol_points[0]
 			else:
 				chase_target()
-				move_and_slide()
-				return
 		elif distance < detection_range:
 			chasing = true
 			chase_target()
-			move_and_slide()
-			return
 
 	# --- Patrol/Return ---
 	if returning:
@@ -106,10 +103,25 @@ func _physics_process(delta: float):
 				attack_timer = attack_cooldown
 			anim.play("attack_" + direction)
 		else:
-			# optionally play other anims here
 			pass
-
 	move_and_slide()
+
+func chase_target() -> void:
+	var dir_vector = (target.global_position - global_position).normalized()
+	velocity = dir_vector * run_speed
+
+	if abs(dir_vector.x) > abs(dir_vector.y):
+		direction = "right" if dir_vector.x > 0 else "left"
+	else:
+		direction = "down" if dir_vector.y > 0 else "up"
+
+	update_detector_direction() 
+
+	if global_position.distance_to(target.global_position) < attack_distance:
+		anim.play("attack_" + direction)
+		velocity = Vector2.ZERO
+	else:
+		anim.play("run_" + direction)
 
 # --- Patrol/Return/Chase functions ---
 func handle_patrol(delta: float) -> void:
@@ -121,10 +133,6 @@ func handle_patrol(delta: float) -> void:
 		wait_timer -= delta
 		if wait_timer <= 0:
 			waiting = false
-			if patrol_forward and current_patrol_index >= patrol_points.size() - 1:
-				patrol_forward = false
-			elif not patrol_forward and current_patrol_index <= 0:
-				patrol_forward = true
 		else:
 			anim.play("idle_" + direction)
 			return
@@ -133,22 +141,23 @@ func handle_patrol(delta: float) -> void:
 	var dir_vector = (target_point - global_position).normalized()
 	velocity = dir_vector * walk_speed
 
+	# Determine facing direction
 	if abs(dir_vector.x) > abs(dir_vector.y):
 		direction = "right" if dir_vector.x > 0 else "left"
 	else:
 		direction = "down" if dir_vector.y > 0 else "up"
 
-	update_detector_direction()  # 👈 added to rotate cone
+	update_detector_direction()
 	anim.play("walk_" + direction)
 
+	# Check if reached patrol point
 	if global_position.distance_to(target_point) < 10:
 		waiting = true
 		wait_timer = patrol_wait_time
-		if patrol_forward:
-			current_patrol_index += 1
-		else:
-			current_patrol_index -= 1
-		current_patrol_index = clamp(current_patrol_index, 0, patrol_points.size() - 1)
+
+		current_patrol_index += 1
+		if current_patrol_index >= patrol_points.size():
+			current_patrol_index = 0  # loop back to first
 
 func handle_return(delta: float) -> void:
 	if patrol_points.size() == 0:
@@ -169,25 +178,9 @@ func handle_return(delta: float) -> void:
 	else:
 		direction = "down" if dir_vector.y > 0 else "up"
 
-	update_detector_direction()  # 👈 added to rotate cone
+	update_detector_direction() 
 	anim.play("walk_" + direction)
 
-func chase_target() -> void:
-	var dir_vector = (target.global_position - global_position).normalized()
-	velocity = dir_vector * run_speed
-
-	if abs(dir_vector.x) > abs(dir_vector.y):
-		direction = "right" if dir_vector.x > 0 else "left"
-	else:
-		direction = "down" if dir_vector.y > 0 else "up"
-
-	update_detector_direction()  # 👈 added to rotate cone
-
-	if global_position.distance_to(target.global_position) < attack_distance:
-		anim.play("attack_" + direction)
-		velocity = Vector2.ZERO
-	else:
-		anim.play("run_" + direction)
 
 # --- Rotate Detector Cone ---
 func update_detector_direction():

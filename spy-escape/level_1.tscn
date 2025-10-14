@@ -2377,7 +2377,7 @@ shape = SubResource("RectangleShape2D_j7kpp")
 
 [node name="Player" parent="scene" instance=ExtResource("3_hn12h")]
 y_sort_enabled = false
-position = Vector2(-1, 29)
+position = Vector2(260, 249)
 
 [node name="Camera2D" type="Camera2D" parent="scene/Player"]
 position = Vector2(-1, 0)
@@ -2387,27 +2387,75 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_5rr72")
 
 [node name="PatrolPoint1" type="Marker2D" parent="scene"]
-position = Vector2(262, 12)
+position = Vector2(264, 12)
 
 [node name="PatrolPoint2" type="Marker2D" parent="scene"]
 position = Vector2(262, 160)
 
+[node name="PatrolPoint5" type="Marker2D" parent="scene"]
+position = Vector2(119, 161)
+
+[node name="PatrolPoint6" type="Marker2D" parent="scene"]
+position = Vector2(119, 250)
+
+[node name="PatrolPoint7" type="Marker2D" parent="scene"]
+position = Vector2(-152, 250)
+
+[node name="PatrolPoint8" type="Marker2D" parent="scene"]
+position = Vector2(-152, 12)
+
 [node name="PatrolPoint3" type="Marker2D" parent="scene"]
-position = Vector2(-124, -242)
+position = Vector2(-240, -240)
 
 [node name="PatrolPoint4" type="Marker2D" parent="scene"]
 position = Vector2(229, -240)
 
+[node name="PatrolPoint9" type="Marker2D" parent="scene"]
+position = Vector2(229, -135)
+
+[node name="PatrolPoint10" type="Marker2D" parent="scene"]
+position = Vector2(-240, -140)
+
+[node name="PatrolPoint11" type="Marker2D" parent="scene"]
+position = Vector2(18, 178)
+
+[node name="PatrolPoint12" type="Marker2D" parent="scene"]
+position = Vector2(-39, 178)
+
 [node name="Guard" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
 position = Vector2(262, 12)
-patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePath("../scene/PatrolPoint2")])
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint1"), NodePath("../scene/PatrolPoint2"), NodePath("../scene/PatrolPoint5"), NodePath("../scene/PatrolPoint6"), NodePath("../scene/PatrolPoint7"), NodePath("../scene/PatrolPoint8")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard"]
+visible = false
 position = Vector2(-1, 0)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
 
 [node name="Detector" parent="Guard" instance=ExtResource("10_gyffv")]
 collision_mask = 255
+
+[node name="Guard3" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
+position = Vector2(-151, 12)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint8"), NodePath("../scene/PatrolPoint7"), NodePath("../scene/PatrolPoint12"), NodePath("../scene/PatrolPoint11"), NodePath("../scene/PatrolPoint6"), NodePath("../scene/PatrolPoint5"), NodePath("../scene/PatrolPoint2"), NodePath("../scene/PatrolPoint1")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard3"]
+visible = false
+position = Vector2(-1, 0)
+navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+
+[node name="Detector" parent="Guard3" instance=ExtResource("10_gyffv")]
+collision_mask = 255
+
+[node name="Guard2" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
+position = Vector2(-239, -238)
+patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePath("../scene/PatrolPoint4"), NodePath("../scene/PatrolPoint9"), NodePath("../scene/PatrolPoint10")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
+visible = false
+position = Vector2(342, 239)
+navigation_polygon = SubResource("NavigationPolygon_ihfcg")
+
+[node name="Detector" parent="Guard2" instance=ExtResource("10_gyffv")]
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(262, 12)
@@ -2464,16 +2512,7 @@ shape = SubResource("SegmentShape2D_sof0w")
 position = Vector2(-322, -5)
 shape = SubResource("SegmentShape2D_ggavl")
 
-[node name="Guard2" parent="." groups=["guards"] instance=ExtResource("4_ihfcg")]
-position = Vector2(-81, -227)
-patrol_points_paths = Array[NodePath]([NodePath("../scene/PatrolPoint3"), NodePath("../scene/PatrolPoint4")])
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Guard2"]
-position = Vector2(342, 239)
-navigation_polygon = SubResource("NavigationPolygon_ihfcg")
-
-[node name="Detector" parent="Guard2" instance=ExtResource("10_gyffv")]
-
 [connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
 [connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]
 [connection signal="body_entered" from="Guard/Detector" to="Guard" method="_on_Detector_body_entered"]
+[connection signal="body_entered" from="Guard3/Detector" to="Guard3" method="_on_Detector_body_entered"]
