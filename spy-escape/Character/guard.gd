@@ -22,6 +22,7 @@ var wait_timer := 0.0
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var detector: Area2D = $Detector
 
 var attack_offsets := {
 	"down": Vector2(0, 20),
@@ -66,6 +67,8 @@ func _physics_process(delta: float):
 
 	if attack_timer > 0:
 		attack_timer -= delta
+	else:
+		attack_hit_done = false  # keep, harmless if unused
 
 	velocity = Vector2.ZERO
 
@@ -95,15 +98,16 @@ func _physics_process(delta: float):
 
 	# --- Attack logic ---
 	if target and is_instance_valid(target):
-		if global_position.distance_to(target.global_position) <= attack_distance and attack_timer <= 0:
-			if not attack_hit_done:
+		var dist = global_position.distance_to(target.global_position)
+		if dist <= attack_distance:
+			if attack_timer <= 0:
 				print("💥 Guard hits player:", target.name)
 				target.take_damage(1)
-				attack_hit_done = true
 				attack_timer = attack_cooldown
 			anim.play("attack_" + direction)
 		else:
-			attack_hit_done = false
+			# optionally play other anims here
+			pass
 
 	move_and_slide()
 
@@ -134,6 +138,7 @@ func handle_patrol(delta: float) -> void:
 	else:
 		direction = "down" if dir_vector.y > 0 else "up"
 
+	update_detector_direction()  # 👈 added to rotate cone
 	anim.play("walk_" + direction)
 
 	if global_position.distance_to(target_point) < 10:
@@ -164,6 +169,7 @@ func handle_return(delta: float) -> void:
 	else:
 		direction = "down" if dir_vector.y > 0 else "up"
 
+	update_detector_direction()  # 👈 added to rotate cone
 	anim.play("walk_" + direction)
 
 func chase_target() -> void:
@@ -175,11 +181,27 @@ func chase_target() -> void:
 	else:
 		direction = "down" if dir_vector.y > 0 else "up"
 
+	update_detector_direction()  # 👈 added to rotate cone
+
 	if global_position.distance_to(target.global_position) < attack_distance:
 		anim.play("attack_" + direction)
 		velocity = Vector2.ZERO
 	else:
 		anim.play("run_" + direction)
+
+# --- Rotate Detector Cone ---
+func update_detector_direction():
+	if detector == null:
+		return
+	match direction:
+		"up":
+			detector.rotation_degrees = 90
+		"down":
+			detector.rotation_degrees = -90
+		"left":
+			detector.rotation_degrees = 0
+		"right":
+			detector.rotation_degrees = 180
 
 # --- Damage / Death ---
 func take_damage(amount: int):
@@ -200,8 +222,6 @@ func die():
 		if anim_name.begins_with("death"):
 			queue_free()
 )
-
-
 
 func _on_Detector_body_entered(body: Node2D) -> void:
 	if is_dead:
