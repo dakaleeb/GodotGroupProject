@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var walk_speed := 200
 @export var run_speed := 350
-@export var health := 6
-@export var max_health := 6
+@export var health := 8
+@export var max_health := 8
 
 var direction := "right"
 var is_dead := false
