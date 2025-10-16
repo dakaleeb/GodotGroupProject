@@ -2,7 +2,8 @@
 extends RichTextLabel
 
 @export var player_path: NodePath
-@export var main_menu_path := "res://scenes/main_menu.tscn"
+@export var main_menu_path := "res://main_menu.tscn"
+
 @export var fade_in_time := 0.8
 @export var delay_before_menu := 1.5
 
