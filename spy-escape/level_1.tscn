@@ -1,14 +1,15 @@
-[gd_scene load_steps=24 format=4 uid="uid://rgqnpeke3fw1"]
+[gd_scene load_steps=25 format=4 uid="uid://rgqnpeke3fw1"]
 
 [ext_resource type="Texture2D" uid="uid://c3gl5mqobo74q" path="res://scene.png" id="1_hbghi"]
-[ext_resource type="Script" uid="uid://bsk4qamacn725" path="res://node_2d.gd" id="1_j7kpp"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://bxv4gnrnny0fl" path="res://sceneObjects.png" id="2_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dn58ws5ur6fkc" path="res://Character/player.tscn" id="3_hn12h"]
 [ext_resource type="Texture2D" uid="uid://do1e5qis6i5sy" path="res://keycard.png" id="3_rka8t"]
 [ext_resource type="Texture2D" uid="uid://ype7hc7jj75f" path="res://door.png" id="4_5hph3"]
-[ext_resource type="Script" uid="uid://c757joxormgny" path="res://key_card.gd" id="4_5rr72"]
+[ext_resource type="Script" path="res://key_card.gd" id="4_5rr72"]
 [ext_resource type="PackedScene" uid="uid://buk77dkedpr0x" path="res://Character/guard.tscn" id="4_ihfcg"]
-[ext_resource type="Script" uid="uid://b8tm26q41w0de" path="res://greendoor.gd" id="6_gyffv"]
+[ext_resource type="Script" path="res://greendoor.gd" id="6_gyffv"]
+[ext_resource type="Script" uid="uid://dckj7c60vs1ar" path="res://rich_text_label.gd" id="10_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn12h"]
 texture = ExtResource("2_hn12h")
@@ -2478,6 +2479,15 @@ visible = false
 position = Vector2(500, 251)
 navigation_polygon = SubResource("NavigationPolygon_ihfcg")
 navigation_layers = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -72.0
+offset_top = 1.0
+offset_right = 145.0
+offset_bottom = 41.0
+theme_override_font_sizes/normal_font_size = 30
+script = ExtResource("10_gyffv")
+player_path = NodePath("../scene/Player")
 
 [connection signal="body_entered" from="scene/Node2D/keyCard" to="scene/Node2D/keyCard" method="_on_body_entered"]
 [connection signal="body_entered" from="scene/Node2D/greendoor" to="scene/Node2D/greendoor" method="_on_body_entered"]
